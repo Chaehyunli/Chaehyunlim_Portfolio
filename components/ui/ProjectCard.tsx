@@ -18,7 +18,11 @@ export function ProjectCard({ project, delay = 0 }: { project: Project; delay?: 
           <img
             src={cover.src}
             alt={cover.caption}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className={
+              cover.narrow
+                ? "h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                : "h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+            }
           />
         ) : (
           <div className="text-5xl transition-transform duration-300 group-hover:scale-105">{project.icon}</div>

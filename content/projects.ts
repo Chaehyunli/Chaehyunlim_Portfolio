@@ -716,6 +716,7 @@ export const projects: Project[] = [
     cardImage: {
       src: "/images/projects/nosogong/screen-activity-selection.png",
       caption: "산책·공놀이·애견카페 활동 선택 — 감정 예측의 입력",
+      narrow: true,
     },
     introScreen: {
       src: "/images/projects/nosogong/screen-game-home.png",
