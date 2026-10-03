@@ -49,6 +49,7 @@ export function HeroCard({ profile }: { profile: Profile }) {
             </LinkButton>
           ))}
         </div>
+        {/* PDF 다운로드 — PDF 품질 확인 후 재활성화
         <a
           href="/portfolio.pdf"
           target="_blank"
@@ -57,6 +58,7 @@ export function HeroCard({ profile }: { profile: Profile }) {
         >
           포트폴리오 PDF ↓
         </a>
+        */}
       </div>
     </div>
   );
