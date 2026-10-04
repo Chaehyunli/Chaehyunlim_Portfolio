@@ -1,6 +1,6 @@
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
-import { career } from "@/content/career";
+import { career, careerHeadline } from "@/content/career";
 import { hermes } from "@/content/personal";
 import { HeroCard } from "@/components/sections/HeroCard";
 import { AboutCard } from "@/components/sections/AboutCard";
@@ -17,7 +17,7 @@ export default function Home() {
       <div className="min-h-screen">
         <section className="px-5 pt-14 pb-10 md:px-12 lg:px-20">
           <div className="mx-auto max-w-[var(--page-width)] space-y-5">
-            <HeroCard profile={profile} />
+            <HeroCard profile={profile} careerHeadline={careerHeadline} />
             <AboutCard profile={profile} />
             <CareerCard career={career} />
             <TimelineCard profile={profile} />

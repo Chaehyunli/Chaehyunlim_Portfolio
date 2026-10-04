@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import type { Project } from "@/content/types";
 import { FramedImage } from "@/components/ui/FramedImage";
+import { KpiRow } from "@/components/ui/KpiRow";
 import { ImagePointsGrid } from "@/components/ui/ImagePointsGrid";
 import { SolutionPoints } from "@/components/ui/SolutionPoints";
 import { BlockHeading } from "@/components/ui/BlockHeading";
@@ -37,6 +38,8 @@ export function ProjectBody({ project }: { project: Project }) {
             {project.oneLiner}
           </p>
         </div>
+
+        {project.kpis && <KpiRow kpis={project.kpis} />}
 
         {hasWhy && (
           <div className="reveal space-y-4">

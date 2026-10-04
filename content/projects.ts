@@ -19,6 +19,11 @@ export const projects: Project[] = [
       "Vue 3", "TypeScript", "Pinia", "Tailwind CSS", "Web Crypto API",
       "DeepEval", "Vercel", "Render",
     ],
+    kpis: [
+      { value: "1개월", label: "기획부터 배포까지 단독", sub: "실제 약속에 활용 중" },
+      { value: "19개", label: "DeepEval 테스트로 검증", sub: "GEval 임계값 0.70" },
+      { value: "60만 회", label: "PBKDF2 키 유도", sub: "서버도 키를 풀 수 없는 구조" },
+    ],
     why: [
       {
         label: "반복되는 장소·동선 조율",
@@ -57,7 +62,7 @@ export const projects: Project[] = [
       caption: "실제 배포된 랜딩 페이지 — 낙서하듯 적으면 일정이 나온다",
     },
     heroScreen: {
-      src: "/images/projects/modu-yaksok/mockup-schedule-candidates.png",
+      src: "/images/projects/modu-yaksok/crop-candidates.png",
       caption: "일정 후보 3개 제시",
     },
     decisions: [
@@ -95,7 +100,7 @@ export const projects: Project[] = [
         outcome:
           "초안을 검증해 위험을 확인한 뒤, 현업 개발자의 조언으로 편의성과 신뢰성의 트레이드오프를 따져 최종 설계를 정했다. 서버가 모든 사용자 키를 복호화할 수 있던 초기 구조에서, 저장된 암호문을 서버가 단독으로 복호화할 수 없는 구조로 전환했다. DB나 백업만 유출돼서는 API 키 평문이 바로 노출되지 않는다. 다만 provider 호출 순간에는 서버가 평문을 처리하므로 런타임 서버는 여전히 신뢰 경계에 포함되며, 이는 CORS·사용량 제어·프록시 정책을 서버에서 유지하기 위해 수용한 트레이드오프다. 패스프레이즈를 잃으면 키를 복구할 수 없어 기존 키를 삭제하고 재등록하는 방식으로 대응한다.",
         image: {
-          src: "/images/projects/modu-yaksok/mockup-api-key-passphrase.png",
+          src: "/images/projects/modu-yaksok/crop-passphrase.png",
           caption: "패스프레이즈 입력 — 서버에는 저장되지 않는다",
         },
       },
@@ -130,9 +135,9 @@ export const projects: Project[] = [
           },
         ],
         outcome:
-          "하드 조건은 완성 후 검사가 아니라 beam search가 후보를 넓히는 도중부터 불변조건으로 강제된다 — 결정론적 회귀 fixture(합성 데이터)에서 세 후보 모두 위반 0건이 재현된다. Step1·Step3 골든셋 19케이스는 전부 GEval 0.70 임계값을 통과했다.",
+          "하드 조건은 완성 후 검사가 아니라 beam search가 후보를 넓히는 도중부터 불변조건으로 강제된다 — 결정론적 회귀 fixture(합성 데이터)에서 세 후보 모두 위반 0건이 재현된다. DeepEval 19개 테스트는 전부 GEval 0.70 임계값을 통과했다.",
         image: {
-          src: "/images/projects/modu-yaksok/mockup-preference-conflict.png",
+          src: "/images/projects/modu-yaksok/crop-conflict.png",
           caption: "조건 입력 — 겹치는 선호는 생성 전에 짚어준다",
         },
       },
@@ -198,6 +203,11 @@ export const projects: Project[] = [
     stack: [
       "React Native", "Expo", "Spring WebFlux", "FastAPI", "PydanticAI",
       "PostgreSQL", "Redis", "SSE", "Docker Compose",
+    ],
+    kpis: [
+      { value: "24/24", label: "테스트 요청 정확히 분류", sub: "DeepEval · 3개 시나리오 0.70~0.80" },
+      { value: "100명", label: "동시 접속 실패 없이 처리", sub: "k6 · DB 커넥션 풀 15개 · 110명부터 지연" },
+      { value: "은상", label: "명지대 캡스톤디자인 경진대회", sub: "26개 팀 중 · 원스토어 출시" },
     ],
     why: [
       {
@@ -367,6 +377,11 @@ export const projects: Project[] = [
       "FastAPI", "PostgreSQL", "Elasticsearch", "pgvector", "Redis",
       "MinIO", "KeyBERT", "React", "TypeScript", "Docker Compose",
     ],
+    kpis: [
+      { value: "5→1회", label: "Elasticsearch 네트워크 왕복", sub: "키워드 5개 기준" },
+      { value: "250→10ms", label: "자동 태깅 응답 시간", sub: "96% 단축" },
+      { value: "3배", label: "목표치 대비 태그 후보 과추출", sub: "필터 뒤 태그 0개 방지" },
+    ],
     why: [
       {
         label: "폴더에 쌓아두면 못 찾는 문서",
@@ -475,7 +490,7 @@ export const projects: Project[] = [
     id: "petner",
     title: "PETNER",
     oneLiner: "유기견 탐색·입양 신청·커뮤니티·보호소 실시간 채팅을 연결한 팀 백엔드 서비스",
-    meta: "2025.08 ~ 2025.10 · 팀 프로젝트",
+    meta: "2025.08 ~ 2025.10 · 4인 팀",
     scope: [
       "실시간 채팅 도메인",
       "WebSocket/STOMP 세션 인증",

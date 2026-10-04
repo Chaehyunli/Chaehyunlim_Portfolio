@@ -95,6 +95,8 @@ export interface Project {
   heroScreen?: ProjectImage;
   decisions: ProjectDecision[];
   screens: ProjectImage[];
+  /** 상세 상단 핵심 수치 3칸 */
+  kpis?: ProjectKpi[];
   /** 성과 블록 소제목 — 판단 소제목과 같은 BlockHeading으로 렌더한다. */
   resultTitle: string;
   result: string;
@@ -116,4 +118,10 @@ export interface Profile {
   education: TimelineEntry[];
   training: TimelineEntry[];
   certifications: string[];
+}
+
+export interface ProjectKpi {
+  value: string;
+  label: string;
+  sub: string;
 }

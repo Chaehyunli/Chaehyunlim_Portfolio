@@ -3,7 +3,7 @@ import type { Profile } from "@/content/types";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { Tag } from "@/components/ui/Tag";
 
-export function HeroCard({ profile }: { profile: Profile }) {
+export function HeroCard({ profile, careerHeadline }: { profile: Profile; careerHeadline: string }) {
   return (
     <div className="reveal card p-6 md:p-8">
       <div className="flex flex-col gap-7 md:flex-row md:gap-10">
@@ -37,6 +37,10 @@ export function HeroCard({ profile }: { profile: Profile }) {
               <Tag key={item}>{item}</Tag>
             ))}
           </div>
+          <p className="mt-4 text-sm text-sub">
+            <span className="mr-2 font-[family-name:var(--font-mono)] text-[10px] font-bold tracking-[var(--tracking-wide)] text-blue uppercase">Intern</span>
+            {careerHeadline}
+          </p>
         </div>
       </div>
 
@@ -49,7 +53,6 @@ export function HeroCard({ profile }: { profile: Profile }) {
             </LinkButton>
           ))}
         </div>
-        {/* PDF 다운로드 — PDF 품질 확인 후 재활성화
         <a
           href="/portfolio.pdf"
           target="_blank"
@@ -58,7 +61,6 @@ export function HeroCard({ profile }: { profile: Profile }) {
         >
           포트폴리오 PDF ↓
         </a>
-        */}
       </div>
     </div>
   );

@@ -16,3 +16,5 @@ export const career: CareerEntry[] = [
     stack: ["Spring Boot", "Thymeleaf", "MyBatis", "MSA"],
   },
 ];
+
+export const careerHeadline = "프람트테크놀로지 인턴 · 단위 테스트 8,000개 · 오류 해결률 100%";

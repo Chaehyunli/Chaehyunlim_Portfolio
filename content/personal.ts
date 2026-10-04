@@ -29,6 +29,6 @@ export const hermes: PersonalExperience = {
     },
   ],
   outcome:
-    "최근 30일간 684건 중 630건을 완료해 92.1%를 처리했고, Cron 자동화 10개를 VPS에서 상시 운영하고 있다.",
+    "최근 30일간 684건 중 630건을 완료해 92.1%를 처리했고, Cron 자동화 10개를 VPS에서 상시 운영하며, 그중 3개는 LLM 없이 스크립트로 실행한다.",
   stack: ["Hermes Agent", "Linux VPS", "Discord", "MCP", "Notion", "Obsidian", "GitHub", "Cron", "Python", "Hook"],
 };
