@@ -129,12 +129,10 @@ export function ProjectBody({ project }: { project: Project }) {
             ))}
           </div>
         )}
-        <p className="reveal border-t border-border pt-4 text-sm leading-relaxed text-sub">
-          <span className="mr-2 font-[family-name:var(--font-mono)] text-[10px] font-bold uppercase tracking-[var(--tracking-wide)] text-muted">
-            성과
-          </span>
-          {project.result}
-        </p>
+        <div className="reveal space-y-5">
+          <BlockHeading eyebrow="성과" title={project.resultTitle} />
+          <p className="max-w-none text-sm leading-relaxed text-text">{project.result}</p>
+        </div>
       </section>
     </>
   );

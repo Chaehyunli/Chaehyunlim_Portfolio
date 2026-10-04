@@ -170,6 +170,7 @@ export const projects: Project[] = [
       },
     ],
     screens: [],
+    resultTitle: "한 달 만에 배포, 실제 사용 중",
     result:
       "기획부터 배포까지 혼자 한 달 만에 완성해 실제 약속에 활용 중. DeepEval 19개 테스트로 검증했고, 후보는 실제 검색 결과 안에서만 구성한다. https://moduyaksok.vercel.app",
   },
@@ -349,6 +350,7 @@ export const projects: Project[] = [
       caption: "AI 채팅부터 예약·일정 관리까지",
     },
     screens: [],
+    resultTitle: "원스토어 출시와 캡스톤 은상",
     result: "원스토어 Android 앱 출시 · 명지대학교 캡스톤디자인 경진대회 26개 팀 중 은상",
   },
   {
@@ -466,7 +468,8 @@ export const projects: Project[] = [
       },
     ],
     screens: [],
-    result: "개인 지식 베이스 서비스 완성 · 2025.12",
+    resultTitle: "태그 검색 응답 96% 단축",
+    result: "개인 지식 베이스 서비스를 완성했다.",
   },
   {
     id: "petner",
@@ -595,6 +598,7 @@ export const projects: Project[] = [
       },
     ],
     screens: [],
+    resultTitle: "VIBE CODING 경진대회 장려상",
     result: "명지대학교 2025 Cursor AI 기반 VIBE CODING 실전활용 경진대회 본선 8팀 중 장려상",
   },
   {
@@ -683,7 +687,8 @@ export const projects: Project[] = [
       },
     ],
     screens: [],
-    result: "동아리 탐색 → 지원 → 승인 → 역할 위임 흐름 구현 · 2025.01 ~ 2025.03 완성",
+    resultTitle: "동아리 탐색부터 역할 위임까지 완성",
+    result: "동아리 탐색 → 지원 → 승인 → 역할 위임 흐름을 구현해 완성했다.",
   },
   {
     id: "nosogong",
@@ -780,7 +785,8 @@ export const projects: Project[] = [
       },
     ],
     screens: [],
+    resultTitle: "ML 감정 예측과 게임 흐름 검증",
     result:
-      "Cold Start를 규칙 기반 합성 데이터로 풀어 감정 예측 모델과 후속 게임 흐름을 함께 검증했다. 정의한 행동 규칙을 모델이 재현하는지 본 수치는 합성 테스트셋 R² 0.9964 / RMSE 0.22이며, 실사용 일반화 성능은 아니다. 2025.03 ~ 2025.10 완성",
+      "Cold Start를 규칙 기반 합성 데이터로 풀어 감정 예측 모델과 후속 게임 흐름을 함께 검증했다. 정의한 행동 규칙을 모델이 재현하는지 본 수치는 합성 테스트셋 R² 0.9964 / RMSE 0.22이며, 실사용 일반화 성능은 아니다.",
   },
 ];

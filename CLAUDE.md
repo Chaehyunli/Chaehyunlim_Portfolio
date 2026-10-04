@@ -25,7 +25,7 @@
 - 상세 페이지(`ProjectDetail`)는 **모두약속을 표준 템플릿**으로 삼는다. 상단 고정 바(← 목록 blue pill + 상태 칩) + 왼쪽 sticky 사이드바(기간·형태 / 맡은 역할 / 스택 / 링크 — 모두 가운데 정렬 칩. `meta`·`scope`는 ` · ` 분해해 gray `Chip`, 스택은 mono `Tag`) + 오른쪽 본문(`ProjectBody`). 본문은 **슬라이드 3장**을 `Divider`로 나눈다:
   1. **개요·동작** — 제목·한 줄 정의 → `배경 / 왜 만들었나`(`introScreen` + `why`) → `설계 / 어떻게 동작하나`(`diagramSrc` 다이어그램 + `heroScreen` + `diagramCaptions`)
   2. **판단** — `판단 01/02/…` 카드(`DecisionBlock`). 판단 **사이에도** `Divider`를 넣는다.
-  3. **서비스 화면·결과** — `screens` 2열 그리드 + `result` 성과 한 줄
+  3. **서비스 화면·결과** — `screens` 2열 그리드 + `result` 성과 블록(판단과 같은 `BlockHeading` — eyebrow `성과`, title `resultTitle`, 본문 `result`)
 - 슬라이드·판단 소제목은 전부 `BlockHeading`(모노 블루 eyebrow + 굵은 h3) 하나로 통일한다.
 - 오른쪽 고정 목차 내비게이션은 다중 페이지 구조와 맞지 않아 제거했다 — 페이지 이동은 카드 클릭 + 상세 페이지 상단의 "← 목록" 링크로 처리한다.
 
@@ -44,7 +44,7 @@
 | `decisions[].diagram` | 해당 판단의 설계 구간을 S&T와 Action 사이에 전체 폭으로 표시. 노드 텍스트를 읽기 위해 Action 옆으로 축소하지 않음 |
 | `decisions[].order` | 데이터 배열과 다르게 실제 처리 흐름 순서로 판단을 보여줄 때 지정 |
 | `screens[]` | 슬라이드 3 서비스 화면 2열 그리드 |
-| `result` | 슬라이드 3 맨 끝 조용한 한 줄 (`border-t` + 모노 `성과` 라벨 + `text-sub` 본문, 필수). 박스·색 없음 — 판단별 Result(`StarBlock`)와 겹치지 않게 |
+| `resultTitle` · `result` | 슬라이드 3 성과 블록. `BlockHeading`(eyebrow `성과`, title `resultTitle`) + 본문 `text-sm text-text`, `max-w-none`. 둘 다 필수 |
 
 가벼운 프로젝트(동아리모아·노소공)도 판단·행동·결과가 빠지지 않도록 **짧은 STAR**를 사용한다. 판단마다 `considerations`는 1~2개, `solution`은 2개 안팎, `outcome`은 한 문단으로 제한하고 실제 결과를 보여주는 화면만 `image`로 연결한다. 무게 배분은 별도 레이아웃이 아니라 데이터 분량으로 조절한다.
 
