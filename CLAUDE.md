@@ -18,7 +18,7 @@
 
 ## 사이트 구조
 
-- 홈(`app/page.tsx`)은 카드형 랜딩: `HeroCard`(2단 — 왼쪽 신원 / 오른쪽 한 줄 정의 + `profile.focus` 강점 칩 + PDF 버튼 — 현재 주석 처리로 비활성, 재활성화는 `HeroCard`에서 주석 해제) → `AboutCard`(About 불릿 + `profile.skills` 카테고리 그리드 한 카드) → `CareerCard`(`content/career.ts`, 인턴 1장) → `TimelineCard`(학력·교육·자격) → 프로젝트 카드 그리드(`ProjectCard`, `content/projects.ts` 순서 그대로).
+- 홈(`app/page.tsx`)은 카드형 랜딩: `HeroCard`(2단 — 왼쪽 신원 / 오른쪽 한 줄 정의 + `profile.focus` 강점 칩 + PDF 버튼 — 현재 주석 처리로 비활성, 재활성화는 `HeroCard`에서 주석 해제) → `AboutCard`(About 불릿 + `profile.skills` 카테고리 그리드 한 카드) → `CareerCard`(`content/career.ts`, 인턴 1장) → `TimelineCard`(학력·교육·자격) → `HermesCard`(`content/personal.ts`, 개인 AI 업무 환경 1장 — 프로젝트 카드 아님, 상세 라우트 없음) → 프로젝트 카드 그리드(`ProjectCard`, `content/projects.ts` 순서 그대로).
 - 프로젝트마다 별도 라우트 `app/[projectId]/page.tsx` (동적 세그먼트, `generateStaticParams`로 6개 프로젝트 정적 생성). 카드를 클릭하면 해당 프로젝트 상세 페이지로 이동 — 단일 스크롤로 되돌리지 않는다.
 - `app/print/page.tsx` = 포트폴리오 전체 PDF의 렌더 소스. `PortfolioPrint`가 표지(프로필·About·Skills·경력·학력) + 6개 프로젝트(가로 메타 헤더 + `ProjectBody`)를 한 문서로 렌더한다. `npm run pdf`(= `next build && node scripts/generate-pdf.mjs`)가 Puppeteer로 `/print`를 인쇄해 `public/portfolio.pdf`를 만든다(수동 실행 후 커밋). 페이지 나눔은 `app/globals.css`의 `@media print` + `.pf-print` 규칙.
 - 상세 본문 렌더는 `ProjectBody` 하나로 통일 — `ProjectDetail`(사이드바 레이아웃)과 `PortfolioPrint`(전체 PDF)가 공유한다. 본문 로직은 `ProjectBody`에만.
@@ -90,7 +90,6 @@
 | Masil | 3장 분량 | AI Agent 파이프라인 + 요청 분류 설계 |
 | Searchive | 2장 분량 | 검색 병목 추적 + 태그 품질 설계 |
 | PETNER | 1장 분량 | WebSocket 세션 인증 + Soft Delete |
-| HERMES | 1장 분량, 가볍게 | 자동화 판단 보정 + 스크립트·AI 역할 분리 (판단 2개, 이미지 없음) |
 | 동아리모아·노소공 | 각 1장 분량, 가볍게 | 스택과 판단 2개씩만 |
 
 카드 그리드 구조상 6개 프로젝트가 각자 독립 카드/페이지를 갖지만, 위 분량 배분(판단 개수·본문 길이)은 그대로 지킨다 — 동아리모아·노소공을 다른 프로젝트만큼 무겁게 채우지 않는다.
@@ -120,7 +119,7 @@
 
 ## 콘텐츠 데이터
 
-프로젝트 콘텐츠는 `content/projects.ts`의 `Project[]`에서만 관리한다(경력/인턴은 같은 구조를 `content/career.ts`의 `CareerEntry[]`로 두고 홈 About 아래 `CareerCard` 한 장으로만 렌더 — 상세 라우트 없음). 컴포넌트에 텍스트를 하드코딩하지 않는다. `introScreen`/`showcaseScreen`/`showcasePoints`/`showcaseEyebrow`/`showcaseTitle`/`diagramSrc`/`diagrams`/`diagramCaptions`/`heroScreen`, 그리고 판단별 `order`/`considerations`/`outcome`/`diagram`/`image`는 전부 옵셔널 — 아직 상세 콘텐츠를 안 채운 프로젝트는 카드 정보(`icon`/`title`/`oneLiner`/`meta`/`scope`(`string[]`)/`status`/`links`/`stack`) + 최소 `decisions`(`title`/`problem`/`solution`) + `result`만으로도 카드와 상세 페이지가 정상 렌더된다. 옵셔널 필드를 채울수록 그 판단이 compact → STAR → 이미지 그리드로 무거워진다 (위 「상세 페이지 = 데이터로 조립」 표 참고).
+프로젝트 콘텐츠는 `content/projects.ts`의 `Project[]`에서만 관리한다(경력/인턴은 같은 구조를 `content/career.ts`의 `CareerEntry[]`로 두고 홈 About 아래 `CareerCard` 한 장으로만 렌더 — 상세 라우트 없음). 컴포넌트에 텍스트를 하드코딩하지 않는다. `introScreen`/`showcaseScreen`/`showcasePoints`/`showcaseEyebrow`/`showcaseTitle`/`diagramSrc`/`diagrams`/`diagramCaptions`/`heroScreen`, 그리고 판단별 `order`/`considerations`/`outcome`/`diagram`/`image`는 전부 옵셔널 — 아직 상세 콘텐츠를 안 채운 프로젝트는 카드 정보(`title`/`oneLiner`/`meta`/`scope`(`string[]`)/`status`/`links`/`stack`) + 최소 `decisions`(`title`/`problem`/`solution`) + `result`만으로도 카드와 상세 페이지가 정상 렌더된다. 옵셔널 필드를 채울수록 그 판단이 compact → STAR → 이미지 그리드로 무거워진다 (위 「상세 페이지 = 데이터로 조립」 표 참고).
 
 ## 참고 자산
 

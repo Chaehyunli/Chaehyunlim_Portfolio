@@ -3,7 +3,6 @@ import type { Project } from "./types";
 export const projects: Project[] = [
   {
     id: "moduyaksok",
-    icon: "🤝",
     title: "모두약속",
     oneLiner:
       "목적·시간·지역·예산·선호를 입력하면 실제 장소 검색 결과로 약속 일정을 만들어주는 AI 서비스",
@@ -175,81 +174,7 @@ export const projects: Project[] = [
       "기획부터 배포까지 혼자 한 달 만에 완성해 실제 약속에 활용 중. DeepEval 19개 테스트로 검증했고, 후보는 실제 검색 결과 안에서만 구성한다. https://moduyaksok.vercel.app",
   },
   {
-    id: "hermes",
-    icon: "🤖",
-    title: "HERMES",
-    oneLiner: "대화로 정한 관심사·규칙을 기억해 뉴스·채용·학습 업무를 자동화하는 개인 AI 업무 환경",
-    meta: "2026.07 ~ 현재 · 개인 프로젝트",
-    scope: ["설계·구축·운영 단독", "자동화 워크플로 설계", "개인화 메모리·정보 관리 구조"],
-    status: { label: "운영 중", color: "green" },
-    links: [],
-    stack: [
-      "Hermes Agent", "Linux VPS", "Discord", "MCP", "Notion",
-      "Obsidian", "GitHub", "Cron", "Python", "Hook",
-    ],
-    why: [
-      {
-        label: "반복되는 정보 확인·기록",
-        detail: "뉴스·주식·채용·학습 자료를 매일 직접 확인하고 기록하는 업무를 줄이고 싶었다.",
-      },
-      {
-        label: "일회성 명령 도구의 한계",
-        detail: "단발성 명령은 대화에서 정한 관심사·규칙을 다음 작업에 반영하지 못했다.",
-      },
-      {
-        label: "상시 운영 환경",
-        detail: "VPS에 상주하는 에이전트로 자동화를 24시간 돌릴 수 있는 개인 환경을 구축했다.",
-      },
-    ],
-    decisions: [
-      {
-        title: "AI 판단 오류를 일회성으로 두지 않고 규칙으로 보정했다",
-        problem:
-          "한 번 정한 규칙만으로는 AI가 관심사와 우선순위를 정확히 판단하지 못했다. 관련 없는 정보가 섞이고 중요도 판단이 반복해서 어긋났다.",
-        considerations: [
-          "일회성 명령 도구는 대화에서 정한 관심사·규칙을 다음 작업에 반영하지 못함",
-        ],
-        solution: [
-          {
-            label: "대화 피드백을 메모리·Skill에 반영",
-            detail:
-              "AI 판단이 관심사·우선순위와 어긋날 때마다 대화로 기준을 구체화해 메모리와 Skill에 반영했다.",
-          },
-          {
-            label: "반복 오판은 Hook 규칙으로 전환",
-            detail: "같은 유형의 오판이 반복되면 Hook 로직에 규칙으로 추가해 자동으로 보정되게 했다.",
-          },
-        ],
-        outcome:
-          "최근 30일간 684건 중 630건을 완료해 92.1%를 처리했고, 누적 1,000건의 실행 이력과 실패 원인을 기록했다.",
-      },
-      {
-        title: "규칙이 명확한 작업은 스크립트로 빼고 AI는 요약·선별에만 썼다",
-        problem:
-          "자동화를 전부 AI에 맡기면 비용이 쌓이고, 결과가 원본과 맞는지 확인하기 어려웠다.",
-        considerations: [
-          "규칙이 명확한 수집은 AI 없이도 결과가 같음 — LLM을 쓸 이유가 없음",
-        ],
-        solution: [
-          {
-            label: "규칙이 명확한 수집은 스크립트",
-            detail: "뉴스·채용 수집처럼 규칙이 명확한 작업은 LLM 없이 스크립트로 실행한다.",
-          },
-          {
-            label: "원본 검증 실패 시 쓰기 차단",
-            detail: "원본 검증이 실패하면 Notion 쓰기를 멈추고 원인을 기록한다(404 시 생성·갱신 차단).",
-          },
-        ],
-        outcome:
-          "Cron 자동화 10개를 3시간~매주 주기로 운영하고, 그중 3개는 LLM 없이 실행한다. Obsidian 노트 970개와 자동화 코드 5,160줄을 관리한다.",
-      },
-    ],
-    screens: [],
-    result: "VPS에서 상시 운영 중이며, 뉴스·주식·채용·학습·문서 관리 업무에 실제로 쓰고 있다.",
-  },
-  {
     id: "masil",
-    icon: "🧭",
     title: "Masil",
     oneLiner: "대화로 일정을 짜고 예약까지 이어지는 AI agent 여행 플래너",
     meta: "2026.03 ~ 2026.08 · 4인 팀",
@@ -428,7 +353,6 @@ export const projects: Project[] = [
   },
   {
     id: "searchive",
-    icon: "🔎",
     title: "Searchive",
     oneLiner: "문서를 업로드하면 자동 태깅·검색·RAG 질의응답으로 이어지는 개인 지식 베이스",
     meta: "2025.10 ~ 2025.12 · 개인 프로젝트",
@@ -546,7 +470,6 @@ export const projects: Project[] = [
   },
   {
     id: "petner",
-    icon: "🐾",
     title: "PETNER",
     oneLiner: "유기견 탐색·입양 신청·커뮤니티·보호소 실시간 채팅을 연결한 팀 백엔드 서비스",
     meta: "2025.08 ~ 2025.10 · 팀 프로젝트",
@@ -676,7 +599,6 @@ export const projects: Project[] = [
   },
   {
     id: "dongari-moa",
-    icon: "📎",
     title: "동아리모아",
     oneLiner: "동아리 탐색·지원·운영·권한 위임을 한 서비스에서 다룬 팀 백엔드 프로젝트",
     meta: "2025.01 ~ 2025.03 · 팀 프로젝트",
@@ -765,7 +687,6 @@ export const projects: Project[] = [
   },
   {
     id: "nosogong",
-    icon: "🎮",
     title: "노소공",
     oneLiner:
       "행동 데이터로 펫 감정을 예측하고 미니게임 보상·성장 흐름을 연결한 ML 기반 동물 육성 게임",

@@ -1,10 +1,12 @@
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { career } from "@/content/career";
+import { hermes } from "@/content/personal";
 import { HeroCard } from "@/components/sections/HeroCard";
 import { AboutCard } from "@/components/sections/AboutCard";
 import { CareerCard } from "@/components/sections/CareerCard";
 import { TimelineCard } from "@/components/sections/TimelineCard";
+import { HermesCard } from "@/components/sections/HermesCard";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { RevealObserver } from "@/components/RevealObserver";
 
@@ -19,6 +21,7 @@ export default function Home() {
             <AboutCard profile={profile} />
             <CareerCard career={career} />
             <TimelineCard profile={profile} />
+            <HermesCard hermes={hermes} />
           </div>
         </section>
 

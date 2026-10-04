@@ -68,7 +68,6 @@ export interface ProjectStatus {
 
 export interface Project {
   id: string;
-  icon: string;
   title: string;
   oneLiner: string;
   meta: string;

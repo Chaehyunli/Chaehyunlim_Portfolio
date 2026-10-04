@@ -21,7 +21,7 @@ export function ProjectDetail({ project }: { project: Project }) {
         </Link>
         <div className="h-4 w-px bg-border-strong" />
         <span className="text-sm font-bold text-text">
-          {project.icon} {project.title}
+          {project.title}
         </span>
         <div className="flex-1" />
         <Chip color={project.status.color}>{project.status.label}</Chip>

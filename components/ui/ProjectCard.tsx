@@ -25,7 +25,7 @@ export function ProjectCard({ project, delay = 0 }: { project: Project; delay?: 
             }
           />
         ) : (
-          <div className="text-5xl transition-transform duration-300 group-hover:scale-105">{project.icon}</div>
+          <p className="font-[family-name:var(--font-mono)] text-sm font-semibold text-blue transition-transform duration-300 group-hover:scale-105">{project.title}</p>
         )}
       </div>
       <div className="p-5">

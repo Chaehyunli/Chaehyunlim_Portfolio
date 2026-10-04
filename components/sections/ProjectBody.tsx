@@ -31,7 +31,7 @@ export function ProjectBody({ project }: { project: Project }) {
       <section className="space-y-12">
         <div className="reveal">
           <h2>
-            {project.icon} {project.title}
+            {project.title}
           </h2>
           <p className="mt-2 max-w-none text-base leading-relaxed text-sub">
             {project.oneLiner}
