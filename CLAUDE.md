@@ -20,7 +20,7 @@
 
 - 홈(`app/page.tsx`)은 카드형 랜딩: `HeroCard`(2단 — 왼쪽 신원 / 오른쪽 한 줄 정의 + `profile.focus` 강점 칩 + PDF 버튼 — 현재 주석 처리로 비활성, 재활성화는 `HeroCard`에서 주석 해제) → `AboutCard`(About 불릿 + `profile.skills` 카테고리 그리드 한 카드) → `CareerCard`(`content/career.ts`, 인턴 1장) → `TimelineCard`(학력·교육·자격) → `HermesCard`(`content/personal.ts`, 개인 AI 업무 환경 1장 — 프로젝트 카드 아님, 상세 라우트 없음) → 프로젝트 카드 그리드(`ProjectCard`, `content/projects.ts` 순서 그대로).
 - 프로젝트마다 별도 라우트 `app/[projectId]/page.tsx` (동적 세그먼트, `generateStaticParams`로 6개 프로젝트 정적 생성). 카드를 클릭하면 해당 프로젝트 상세 페이지로 이동 — 단일 스크롤로 되돌리지 않는다.
-- `app/print/page.tsx` = 포트폴리오 전체 PDF의 렌더 소스. `PortfolioPrint`가 표지(프로필·About·Skills·경력·학력) + 6개 프로젝트(가로 메타 헤더 + `ProjectBody`)를 한 문서로 렌더한다. `npm run pdf`(= `next build && node scripts/generate-pdf.mjs`)가 Puppeteer로 `/print`를 인쇄해 `public/portfolio.pdf`를 만든다(수동 실행 후 커밋). 페이지 나눔은 `app/globals.css`의 `@media print` + `.pf-print` 규칙.
+- `app/print/page.tsx` = 포트폴리오 전체 PDF의 렌더 소스. `PortfolioPrint`가 표지(프로필·About·Skills·경력·학력) + 6개 프로젝트(가로 메타 헤더 + `ProjectBody`)를 한 문서로 렌더한다. `public/portfolio.pdf`는 스크립트로 생성하지 않고 직접 만들어 올린 파일이다(생성 스크립트·`npm run pdf` 없음). 페이지 나눔은 `app/globals.css`의 `@media print` + `.pf-print` 규칙.
 - 상세 본문 렌더는 `ProjectBody` 하나로 통일 — `ProjectDetail`(사이드바 레이아웃)과 `PortfolioPrint`(전체 PDF)가 공유한다. 본문 로직은 `ProjectBody`에만.
 - 상세 페이지(`ProjectDetail`)는 **모두약속을 표준 템플릿**으로 삼는다. 상단 고정 바(← 목록 blue pill + 상태 칩) + 왼쪽 sticky 사이드바(기간·형태 / 맡은 역할 / 스택 / 링크 — 모두 가운데 정렬 칩. `meta`·`scope`는 ` · ` 분해해 gray `Chip`, 스택은 mono `Tag`) + 오른쪽 본문(`ProjectBody`). 본문은 **슬라이드 3장**을 `Divider`로 나눈다:
   1. **개요·동작** — 제목·한 줄 정의 → `배경 / 왜 만들었나`(`introScreen` + `why`) → `설계 / 어떻게 동작하나`(`diagramSrc` 다이어그램 + `heroScreen` + `diagramCaptions`)
