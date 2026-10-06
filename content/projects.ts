@@ -297,7 +297,7 @@ export const projects: Project[] = [
           },
         ],
         outcome:
-          "AI 응답을 기다리는 동안 요청 스레드와 DB 커넥션이 묶이지 않게 됐다. Token Bucket 호출 제어(판단 03)와 함께 적용해, DB 커넥션 풀 15개 환경에서 k6로 측정해 동시 접속 100명까지 실패 없이 처리했고 110명부터 지연이 발생하는 한계선도 확인했다.",
+          "AI 응답을 기다리는 동안 요청 스레드와 DB 커넥션이 묶이지 않게 됐다. Token Bucket 호출 제어(판단 03)와 함께 적용해, DB 커넥션 풀 15개 환경에서 k6로 측정해 동시 접속 100명까지 실패 없이 처리했고(p95 11.1초, 기준 12초 미만) 110명부터 응답 지연이 발생하는 한계선도 확인했다.",
         image: {
           src: "/images/projects/masil/screen-day-detail.png",
           caption: "Day별 일정 상세 — 비동기 파이프라인이 만들어 내려보내는 결과",
@@ -361,7 +361,7 @@ export const projects: Project[] = [
     },
     screens: [],
     resultTitle: "원스토어 출시와 캡스톤 은상",
-    result: "원스토어 Android 앱 출시 · 명지대학교 캡스톤디자인 경진대회 26개 팀 중 은상",
+    result: "원스토어 Android 앱 출시 · 명지대학교 캡스톤디자인 경진대회 26개 팀 중 은상 · 15개 DB 커넥션 풀 환경에서 k6 100명까지 무실패(p95 11.1초, 기준 12초 미만), 110명부터 응답 지연 확인",
   },
   {
     id: "searchive",
